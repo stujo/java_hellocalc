@@ -57,4 +57,28 @@ public class HelloCalcAppTest {
         implTestWithInput(values, 13);
     }
 
+    @Test
+    public void testSingleInput() {
+        String[] values = {"43435.252"};
+        implTestWithInput(values, 43435.252);
+    }
+
+    @Test
+    public void testNegationInput() {
+        String[] values = {"15.59","-15.59"};
+        implTestWithInput(values, 0);
+    }
+
+    @Test
+    public void testLongerSeriesInput() {
+        String[] values = {"1","2","3","4","5","6"};
+        implTestWithInput(values, 21);
+    }
+
+    @Test
+    public void testInvalidInput() {
+        String[] values = {"13","blap","3"};
+        implTestWithInput(values, 16);
+    }
+
 }

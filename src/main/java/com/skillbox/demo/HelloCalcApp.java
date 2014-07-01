@@ -5,6 +5,7 @@ import com.skillbox.demo.calc.Calculator;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
 
 /**
  * Hello world!
@@ -32,9 +33,11 @@ public class HelloCalcApp {
                     quitting = true;
                 } else if (userInput.matches(numberPattern)) {
                     try {
-                        double toAdd = Double.parseDouble(userInput);
-                        System.out.println(String.format("Adding %s", toAdd));
-                        calc.add(toAdd);
+                        // Use the string constructor of the BigDecimal
+                        // To get an exact representation of the userInput as decimal
+                        BigDecimal toAdd = new BigDecimal(userInput);
+                        System.out.println(String.format("Adding %s", toAdd.doubleValue()));
+                        calc.add( toAdd.doubleValue());
                         System.out.println(String.format("The current total is %s", calc.getCurrentValue()));
                     } catch (NumberFormatException nfe) {
                         System.out.println("Sorry I couldn't understand that number");
