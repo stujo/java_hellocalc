@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
  */
 public class HelloCalcApp {
 
-    static final String numberPattern = "\\d+(\\.\\d+)?";
+    static final String numberPattern = "-?(\\d)*(\\.)?(\\d)+";
 
     public static void main(String[] args) {
 
@@ -33,6 +33,7 @@ public class HelloCalcApp {
                 } else if (userInput.matches(numberPattern)) {
                     try {
                         double toAdd = Double.parseDouble(userInput);
+                        System.out.println(String.format("Adding %s", toAdd));
                         calc.add(toAdd);
                         System.out.println(String.format("The current total is %s", calc.getCurrentValue()));
                     } catch (NumberFormatException nfe) {
